@@ -1,0 +1,134 @@
+.settings-page {
+  padding: 28px;
+  color: #172033;
+  max-width: 1000px;
+}
+
+.settings-header {
+  margin-bottom: 27px;
+}
+
+.settings-header h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.settings-header p {
+  color: #8991a2;
+}
+
+.settings-panel {
+  background: white;
+  padding: 25px;
+  border: 1px solid #edf0f5;
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
+
+.settings-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  color: #6759e8;
+}
+
+.settings-section-heading h3 {
+  color: #172033;
+  margin-bottom: 5px;
+}
+
+.settings-section-heading p {
+  font-size: 13px;
+  color: #8991a2;
+}
+
+.settings-panel form {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+}
+
+.settings-panel label {
+  margin: 13px 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.settings-panel input {
+  padding: 13px;
+  border: 1px solid #dfe3ec;
+  border-radius: 8px;
+  outline: none;
+}
+
+.settings-panel input:focus {
+  border-color: #6759e8;
+}
+
+.settings-panel form button {
+  margin-top: 20px;
+  padding: 13px;
+  background: #6759e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  max-width: 180px;
+}
+
+.settings-panel button:disabled {
+  opacity: 0.6;
+}
+
+.settings-success {
+  color: #16834c;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.settings-error {
+  background: #fff0f0;
+  color: #c62828;
+  padding: 13px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.account-information p {
+  padding: 12px 0;
+  border-bottom: 1px solid #edf0f5;
+  color: #8991a2;
+}
+
+.account-information strong {
+  color: #172033;
+  margin-left: 8px;
+}
+
+.danger-panel {
+  border-color: #ffdede;
+}
+
+.danger-panel .settings-section-heading {
+  color: #dc3545;
+}
+
+.delete-account-button {
+  padding: 12px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-account-button:hover {
+  background: #bd2635;
+}
+
+@media (max-width: 550px) {
+  .settings-page {
+    padding: 15px;
+  }
+}
