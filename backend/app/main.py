@@ -1,31 +1,48 @@
+import os
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine, get_db
-
 from app.models.user import User
 from app.models.expense import Expense
 from app.models.category import Category
-
 from app.routers import users, auth, expense, dashboard, categories
 
 
-app = FastAPI(title="ExpenseFlow API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Automatically create missing tables on startup
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        print(f"Warning: Database initialization failed during startup: {e}")
+    yield
 
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app = FastAPI(title="ExpenseFlow API", lifespan=lifespan)
 
-
-# Create any missing tables without altering existing tables
-Base.metadata.create_all(bind=engine)
-
+# Allow CORS origins from environment variable or allow all origins for web deployment
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "")
+if allowed_origins_env:
+    origins = [orig.strip() for orig in allowed_origins_env.split(",") if orig.strip()]
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+else:
+    # Default to accepting requests from local dev and any domain
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origin_regex=".*",
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 app.include_router(users.router)
 app.include_router(expense.router)
@@ -37,6 +54,11 @@ app.include_router(categories.router)
 @app.get("/")
 def home():
     return {"message": "ExpenseFlow API is running"}
+
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
 
 
 @app.get("/test-db")
