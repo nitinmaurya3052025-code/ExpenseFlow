@@ -20,7 +20,7 @@
 .settings-panel {
   background: white;
   padding: 25px;
-  border: 1px solid #edf0f5;
+  border: 1px solid #EAECF0;
   border-radius: 14px;
   margin-bottom: 22px;
 }
@@ -97,7 +97,7 @@
 
 .account-information p {
   padding: 12px 0;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid #EAECF0;
   color: #8991a2;
 }
 

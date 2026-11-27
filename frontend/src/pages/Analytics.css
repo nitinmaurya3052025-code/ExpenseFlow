@@ -29,7 +29,7 @@
   background: white;
   padding: 23px;
   border-radius: 14px;
-  border: 1px solid #edf0f5;
+  border: 1px solid #EAECF0;
 }
 
 .analytics-card span {
@@ -152,7 +152,7 @@
 .analytics-table-wrapper th,
 .analytics-table-wrapper td {
   padding: 15px;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid #EAECF0;
 }
 
 .analytics-table-wrapper th {

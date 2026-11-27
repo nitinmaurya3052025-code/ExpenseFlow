@@ -3,25 +3,25 @@
 :root {
   font-family: "Inter", sans-serif;
 
-  color: #f1f5f9;
-  background: #0b1120;
+  color: #0f172a;
+  background: #F5F7FA;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --bg-primary: #0b1120;
-  --bg-secondary: #111827;
-  --bg-card: #151f32;
+  --bg-primary: #F5F7FA;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
 
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
 
   --accent: #6366f1;
   --accent-hover: #4f46e5;
 
-  --border: #263247;
+  --border: #EAECF0;
 
   --success: #22c55e;
   --danger: #ef4444;
@@ -37,6 +37,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 button,
@@ -57,4 +58,24 @@ a {
 
 #root {
   min-height: 100vh;
+}
+
+/* Authentication Page & Card Container */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F7FA;
+  padding: 20px;
+}
+
+.auth-card {
+  background: #FFFFFF;
+  border: 1px solid #EAECF0;
+  border-radius: 14px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
