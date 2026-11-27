@@ -2,7 +2,7 @@ services:
   # FastAPI Backend Service
   - type: web
     name: expenseflow-backend
-    env: python
+    runtime: python
     plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
@@ -18,8 +18,7 @@ services:
   # React Frontend Static Site
   - type: web
     name: expenseflow-frontend
-    env: static
-    plan: free
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
