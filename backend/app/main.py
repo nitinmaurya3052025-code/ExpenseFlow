@@ -13,11 +13,7 @@ from app.routers import users, auth, expense, dashboard, categories
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Automatically create missing tables on startup
-    try:
-        Base.metadata.create_all(bind=engine)
-    except Exception as e:
-        print(f"Warning: Database initialization failed during startup: {e}")
+    # Application startup: database schema is managed via Alembic migrations
     yield
 
 
